@@ -1,38 +1,58 @@
-.App {
-  text-align: center;
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,700;1,400&display=swap');
+
+body {
+    background: url(./images/bg.jpg);
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    font-family: 'Roboto', sans-serif;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+a {
+    color: #0d6efd;
+    text-decoration: none !important;
+    transition: 0.2s;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+/* Header */
+nav.navbar.navbar-expand-lg.navbar-light {
+    padding: 3em 0;
+}
+.navbar-light .navbar-brand {
+    color: #fff !important;
+    font-size: 2em;
+    font-weight: 700;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+.navbar-brand:hover {
+    color: inherit;
 }
 
-.App-link {
-  color: #61dafb;
+.orange {
+    color: #d57800;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.pp .navbar-collapse {
+    flex-grow: 0;
+}
+#basic-navbar-nav a {
+    color: #fff;
+    font-size: 1.1em;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: .2em;
+    padding-right: 2em;
+}
+#basic-navbar-nav a:last-child {
+    padding-right: 0;
+}
+
+#basic-navbar-nav a:hover {
+    color: #d57800;
+}
+
+.navbar .container {
+    border-bottom: 1px solid #435171;
+    padding-bottom: 2em;
 }
