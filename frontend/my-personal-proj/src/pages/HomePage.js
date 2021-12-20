@@ -1,6 +1,8 @@
 import React from 'react'
 import QuotesAPI from '../api/QuotesAPI'
 import { useEffect, useState } from 'react'
+import { Button } from 'react-bootstrap'
+import { Link } from 'react-router-dom'
 
 function HomePage() {
     const [text, setText] = useState('')
@@ -22,9 +24,10 @@ function HomePage() {
     }, [])
 
     return (
-        <div>
-            <p className='quote'>{text}</p>
+        <div className='quote-block'>
+            <p className='quote'>"{text}"</p>
             <p className='author'>{author}</p>
+            <Link to='/'><Button variant="primary">View Daily Tasks</Button></Link>
         </div>
     )
 }

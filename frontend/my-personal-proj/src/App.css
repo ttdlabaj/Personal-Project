@@ -56,3 +56,49 @@ nav.navbar.navbar-expand-lg.navbar-light {
     border-bottom: 1px solid #435171;
     padding-bottom: 2em;
 }
+
+/* date component*/
+.date {
+    display: flex;
+    justify-content: flex-end;
+    color: #fff;
+    font-size: 1.8em;
+    font-weight: 100;
+    padding-bottom: 3em;
+}
+
+.date span {
+    font-weight: 500;
+}
+
+.quote-block {
+    display: flex;
+    flex-direction: column;
+    /* justify-content: center; */
+    align-items: center;
+    color: #fff;
+}
+
+p.quote {
+    font-family: 'Georgia', serif;
+    font-style: italic;
+    font-size: 2.5em;
+    text-align: center;
+    padding: 2em 2em 0.4em 2em;
+}
+
+p.author {
+    color: #d57800;
+    text-transform: uppercase;
+    font-weight: 700;
+    letter-spacing: .1em;
+    font-size: 1.3em;
+}
+
+.btn.btn-primary {
+    padding: 0.6em 1.5em;
+    border-radius: 0.5em;
+    font-weight: 700;
+    font-size: 1.2em;
+    margin-top: 1.2em;
+}
