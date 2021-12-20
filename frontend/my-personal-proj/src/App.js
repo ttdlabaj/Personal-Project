@@ -6,6 +6,7 @@ import ErrorPage from './pages/ErrorPage';
 import TopNavBar from './components/TopNavBar';
 import { Container } from 'react-bootstrap'
 import Date from './components/Date'
+import DailyTasks from './pages/DailyTasks';
 
 function App() {
   return (
@@ -16,6 +17,7 @@ function App() {
         <Routes>
           <Route path='/' element={<HomePage />} />
           <Route path='/goals' element={<GoalsPage />} />
+          <Route path='/daily-tasks' element={<DailyTasks />} />
           <Route path='*' element={<ErrorPage />} />
         </Routes>
       </Container>
