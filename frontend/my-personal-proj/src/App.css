@@ -173,3 +173,8 @@ span.e-icons {
     font-size: 1.3em;
     padding: 0 0.2em;
 }
+
+.accordion-body .task-item.row {
+    margin: 1em;
+    border: 1px solid #efefef;
+}

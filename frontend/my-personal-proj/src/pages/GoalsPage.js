@@ -7,9 +7,9 @@ import axios from 'axios'
 
 // axios.get('/dashboard/goals/')
 
-function GoalsPage() {
+function GoalsPage({ goals, setGoals }) {
     // useState to store the goals and set the goals
-    const [goals, setGoals] = useState([])
+    // const [goals, setGoals] = useState([])
 
     const getGoals = async () => {
         try {

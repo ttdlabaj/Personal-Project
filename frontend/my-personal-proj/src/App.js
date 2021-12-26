@@ -6,9 +6,15 @@ import ErrorPage from './pages/ErrorPage';
 import TopNavBar from './components/TopNavBar';
 import { Container } from 'react-bootstrap'
 import Date from './components/Date'
-import DailyTasks from './pages/DailyTasks';
+import DailyTasksPage from './pages/DailyTasksPage';
+import MasterTasksPage from './pages/MasterTasksPage'
+import { useState } from 'react'
+import axios from 'axios'
+
 
 function App() {
+  const [goals, setGoals] = useState([])
+  const [task, setTask] = useState([])
   return (
     <Router>
       <Container className='pp'>
@@ -16,8 +22,9 @@ function App() {
         <Date />
         <Routes>
           <Route path='/' element={<HomePage />} />
-          <Route path='/goals' element={<GoalsPage />} />
-          <Route path='/daily-tasks' element={<DailyTasks />} />
+          <Route path='/goals' element={<GoalsPage goals={goals} setGoals={setGoals} />} />
+          <Route path='/daily-tasks' element={<DailyTasksPage goals={goals} setGoals={setGoals} task={task} setTask={setTask} />} />
+          <Route path='/task-list' element={<MasterTasksPage task={task} setTask={setTask} />} />
           <Route path='*' element={<ErrorPage />} />
         </Routes>
       </Container>
