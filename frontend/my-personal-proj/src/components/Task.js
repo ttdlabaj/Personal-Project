@@ -54,33 +54,24 @@ function Task({ id, name, goal, list, completeTask, deleteTask, editTask }) {
         setShow(false)
         setName(name)
         setGoal(goal)
-        setList(list)
+
     };
     const handleShow = () => {
 
         setShow(true)
     };
 
-    const editTaskHandler = (name) => {
+    const editTaskHandler = (name, goal) => {
         handleClose()
         const task = {
             id,
             name,
             completed: false,
-            list: [],
+
             goal,
         }
         editTask(task)
         setName(name)
-    }
-
-    const handleListValue = e => {
-        const target = e.target
-        let value = target.name
-        if (target.checked) {
-            console.log('hello')
-            // setList([value, ...list])
-        }
     }
 
     return (
@@ -108,14 +99,19 @@ function Task({ id, name, goal, list, completeTask, deleteTask, editTask }) {
                         <Form.Group className="mb-3" controlId="">
                             <Form.Control type="text" value={newName} onChange={e => setName(e.target.value)} />
 
-                            {/* {listData.map((listItem, index) => (
-                                newList.includes(listItem.id) ? <Form.Check type="checkbox" key={index} checked={isChecked} label={listItem.name} name={listItem.id} aria-label="check" onChange={e => console.log(e)} /> : <Form.Check type="checkbox" key={index} label={listItem.name} name={listItem.id} aria-label="check" onChange={e => console.log(e)} />
-                            ))} */}
+
+                            <Form.Select aria-label="goal" value={newGoal} onChange={e => setGoal(e.target.value)}>
+                                <option>Choose Goal</option>
+                                {goalData.map((goalItem, index) => (
+                                    <option key={index} value={goalItem.id} >{goalItem.name}</option>
+                                ))}
+                            </Form.Select>
+
                         </Form.Group>
                     </Form>
                 </Modal.Body>
                 <Modal.Footer>
-                    <Button variant="primary" onClick={() => editTaskHandler(newName)}>
+                    <Button variant="primary" onClick={() => editTaskHandler(newName, newGoal)}>
                         Save Changes
                     </Button>
                 </Modal.Footer>

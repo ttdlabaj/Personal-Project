@@ -10,9 +10,11 @@ function TopNavBar() {
                 <Navbar.Toggle aria-controls="basic-navbar-nav" />
                 <Navbar.Collapse id="basic-navbar-nav">
                     <Nav className="me-auto">
-                        <Link to='/'><Nav>Goals</Nav></Link>
-                        <Link to='/'><Nav>Daily Tasks</Nav></Link>
-                        <Link to='/'><Nav>Master Task List</Nav></Link>
+                        <Link to='/dashboard'><Nav>Dashboard</Nav></Link>
+                        <Link to='/goals'><Nav>Goals</Nav></Link>
+
+                        <Link to='/task-list'><Nav>Task List</Nav></Link>
+                        <Link to='/stats'><Nav>Statistics</Nav></Link>
                     </Nav>
                 </Navbar.Collapse>
             </Container>

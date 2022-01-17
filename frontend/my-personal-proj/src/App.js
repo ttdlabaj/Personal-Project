@@ -9,7 +9,7 @@ import Date from './components/Date'
 import DailyTasksPage from './pages/DailyTasksPage';
 import MasterTasksPage from './pages/MasterTasksPage'
 import { useState } from 'react'
-import axios from 'axios'
+import Statistics from './pages/Statistics';
 
 
 function App() {
@@ -23,8 +23,9 @@ function App() {
         <Routes>
           <Route path='/' element={<HomePage />} />
           <Route path='/goals' element={<GoalsPage goals={goals} setGoals={setGoals} />} />
-          <Route path='/daily-tasks' element={<DailyTasksPage goals={goals} setGoals={setGoals} task={task} setTask={setTask} />} />
+          <Route path='/dashboard' element={<DailyTasksPage goals={goals} setGoals={setGoals} task={task} setTask={setTask} />} />
           <Route path='/task-list' element={<MasterTasksPage task={task} setTask={setTask} />} />
+          <Route path='/stats' element={<Statistics goals={goals} setGoals={setGoals} task={task} setTask={setTask} />} />
           <Route path='*' element={<ErrorPage />} />
         </Routes>
       </Container>

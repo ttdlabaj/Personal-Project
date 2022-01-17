@@ -66,7 +66,7 @@ function GoalsPage({ goals, setGoals }) {
 
 
     return (
-        <div>
+        <div className="goalspage">
             <h1 className="header">Add Your Goals</h1>
             <AddGoal addGoal={addGoal} />
             {goals.map((goal, index) => (

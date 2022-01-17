@@ -27,7 +27,7 @@ function Goal({ id, name, completeGoal, deleteGoal, editGoal }) {
 
     return (
         <>
-            <Row className='task-item'>
+            <Row className='task-item goals'>
                 <Col md={1}><Form.Group controlId="formBasicCheckbox">
                     <Form.Check type="checkbox" onChange={() => completeGoal(id)} />
                 </Form.Group>

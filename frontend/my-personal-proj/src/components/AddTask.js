@@ -59,16 +59,12 @@ function AddTask({ addTask }) {
     // console.log('list', list)
 
     return (
-        <Row>
+        <Row className='add-task'>
             <Col md={12}>
                 <Form onSubmit={addTaskHandler}>
                     <Form.Group className="mb-3" controlId="">
                         <Form.Control type="text" placeholder="Add Task" onChange={e => setName(e.target.value)} />
 
-
-                        {listData.map((listItem, index) => (
-                            <Form.Check type="checkbox" key={index} label={listItem.name} name={listItem.id} aria-label="check" onChange={handleListValue} />
-                        ))}
 
                         <Form.Select aria-label="goal" onChange={e => setGoal(e.target.value)}>
                             <option>Choose Goal</option>
