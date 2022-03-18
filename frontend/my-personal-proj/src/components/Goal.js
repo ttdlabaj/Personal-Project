@@ -33,7 +33,7 @@ function Goal({ id, name, completeGoal, deleteGoal, editGoal }) {
                 </Form.Group>
                 </Col>
                 <Col>
-                    <p class="task-title">{name}</p>
+                    <p className="task-title">{name}</p>
                 </Col>
                 <Col md={2} className='edit-icons'>
                     <span className="e-icons" onClick={handleShow}><FontAwesomeIcon icon={faPen} /></span>

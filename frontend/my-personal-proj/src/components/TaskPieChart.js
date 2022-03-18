@@ -7,8 +7,6 @@ import axios from 'axios'
 ChartJS.register(ArcElement, Tooltip, Legend);
 
 function TaskPieChart() {
-    const [taskCompleted, setTaskCompleted] = useState([])
-    const [taskUncompleted, setTaskUncompleted] = useState([])
     const [pieChartTaskData, setPieChartTaskData] = useState({})
 
     const pieChartGoals = () => {

@@ -10,7 +10,7 @@ import TaskBarChart from '../components/TaskBarChart'
 
 ChartJS.register(ArcElement, Tooltip, Legend);
 
-function Statistics({ goals, setGoals, task, setTask }) {
+function Statistics() {
 
     return (
         <div className="stats">
@@ -19,19 +19,19 @@ function Statistics({ goals, setGoals, task, setTask }) {
             </Row>
             <Row className="stat-row">
                 <Col>
-
-                    <GoalsPieChart goals={goals} setGoals={setGoals} task={task} setTask={setTask} /></Col>
+                    <GoalsPieChart />
+                </Col>
                 <Col>
-
-                    <TaskPieChart /></Col>
+                    <TaskPieChart />
+                </Col>
             </Row>
             <Row className="stat-row">
                 <Col>
-
-                    <GoalsBarChart /></Col>
+                    <GoalsBarChart />
+                </Col>
                 <Col>
-
-                    <TaskBarChart /></Col>
+                    <TaskBarChart />
+                </Col>
             </Row>
         </div>
     )

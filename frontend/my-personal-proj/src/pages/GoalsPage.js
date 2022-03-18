@@ -2,24 +2,22 @@ import React, { useState, useEffect } from 'react'
 import { Form } from 'react-bootstrap'
 import AddGoal from '../components/AddGoal'
 import Goal from '../components/Goal'
-
 import axios from 'axios'
 
-// axios.get('/dashboard/goals/')
 
 function GoalsPage({ goals, setGoals }) {
-    // useState to store the goals and set the goals
-    // const [goals, setGoals] = useState([])
+    console.log('goals', goals)
 
     const getGoals = async () => {
         try {
-            const response = await axios.get('/dashboard/goals/')
+            const response = await axios.get('http://127.0.0.1:8000/dashboard/goals/')
             const { data } = response
             setGoals(data)
         } catch (err) {
             console.log(err)
         }
     }
+    console.log('goals goalspage', goals)
 
     useEffect(() => {
         getGoals()
@@ -27,18 +25,20 @@ function GoalsPage({ goals, setGoals }) {
 
     const addGoal = async newGoal => {
         try {
-            await axios.post('/dashboard/goals/', newGoal)
+            await axios.post('http://127.0.0.1:8000/dashboard/goals/', newGoal)
             getGoals()
         } catch (err) {
             console.log(err)
         }
     }
 
-    const completeGoal = async id => {
+    const completeGoal = async id => { 
+        console.log('id', id)       
         try {
             const goal = goals.filter(goal => goal.id === id)[0]
+
             goal.completed = true
-            await axios.put(`/dashboard/goals/${id}/`, goal)
+            await axios.put(`http://127.0.0.1:8000/dashboard/goals/${id}/`, goal)
             getGoals()
         } catch (err) {
             console.log(err)
@@ -47,7 +47,7 @@ function GoalsPage({ goals, setGoals }) {
 
     const editGoal = async goal => {
         try {
-            await axios.put(`/dashboard/goals/${goal.id}/`, goal)
+            await axios.put(`http://127.0.0.1:8000/dashboard/goals/${goal.id}/`, goal)
             getGoals()
         } catch (err) {
             console.log(err)
@@ -57,7 +57,7 @@ function GoalsPage({ goals, setGoals }) {
 
     const deleteGoal = async id => {
         try {
-            await axios.delete(`/dashboard/goals/${id}/`)
+            await axios.delete(`http://127.0.0.1:8000/dashboard/goals/${id}/`)
             getGoals()
         } catch (err) {
             console.log(err)

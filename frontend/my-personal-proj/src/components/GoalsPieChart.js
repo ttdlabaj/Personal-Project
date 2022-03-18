@@ -8,9 +8,6 @@ ChartJS.register(ArcElement, Tooltip, Legend);
 
 function GoalsPieChart({ goals, setGoals, task, setTask }) {
 
-
-    const [goalCompleted, setGoalCompleted] = useState([])
-    const [goalUncompleted, setGoalUncompleted] = useState([])
     const [pieChartGoalsData, setPieChartGoalsData] = useState({})
 
     const pieChartGoals = () => {
@@ -52,18 +49,12 @@ function GoalsPieChart({ goals, setGoals, task, setTask }) {
             .catch(err => {
                 console.log(err)
             })
-        console.log(gc)
-
 
     }
 
     useEffect(() => {
         pieChartGoals()
     }, [])
-
-    console.log('typeof', typeof (goalCompleted))
-    console.log('goalsCompleted', goalCompleted)
-    console.log('pieChartGoalsData', pieChartGoalsData)
 
     return (
         <div>

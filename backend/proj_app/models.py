@@ -16,13 +16,6 @@ class DailyTask(models.Model):
     def __str__(self):
         return self.name
 
-# class TaskList(models.Model):
-#     name = models.CharField(max_length=255)
-#     description = models.CharField(max_length=255)
-
-#     def __str__(self):
-#         return self.name
-
 class Task(models.Model):
     name = models.CharField(max_length=255)
     completed = models.BooleanField(default=False)    

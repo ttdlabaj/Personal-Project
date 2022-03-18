@@ -13,7 +13,7 @@ function AddTask({ addTask }) {
 
     const getGoals = async () => {
         try {
-            const response = await axios.get('/dashboard/goals/')
+            const response = await axios.get('http://127.0.0.1:8000/dashboard/goals/')
             const { data } = response
             setGoalData(data)
         } catch (err) {
@@ -21,19 +21,9 @@ function AddTask({ addTask }) {
         }
     }
 
-    const getLists = async () => {
-        try {
-            const response = await axios.get('/dashboard/task-list/')
-            const { data } = response
-            setListData(data)
-        } catch (err) {
-            console.log(err)
-        }
-    }
-
     useEffect(() => {
         getGoals()
-        getLists()
+        // getLists()
     }, [])
 
     const addTaskHandler = e => {

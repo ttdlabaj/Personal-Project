@@ -9,52 +9,39 @@ import _ from 'lodash'
 
 function DailyTasksPage({ goals, setGoals, task, setTask }) {
 
-    const [state, setState] = useState({})
+    const [state, setState] = useState({}) 
+    console.log('goals', goals)   
 
-    const getAllContent = async () => {
-        try { // get all data from django api
-            const response = await axios.get('http://127.0.0.1:8000/dashboard/goals/')
-            const res = response.data
-            const responseTwo = await axios.get('http://127.0.0.1:8000/dashboard/daily-task/')
-            const resTwo = responseTwo.data
-            const responseThree = await axios.get('http://127.0.0.1:8000/dashboard/task/')
-            const resThree = responseThree.data
-            console.log('res', res, 'restwo', resTwo)
-            // format data for mapping
-            let columnSet = {
+    const getAllContent = () => {
+        let columnSet = {
                 "daily-task": {
                     title: "Daily Tasks",
-                    items: resTwo
+                items: []
                 },
                 "goals-tasks": {
                     title: "Goals/Tasks",
-                    items: res
+                    items: goals
                 },
                 "tasklist": {
                     title: "TaskList",
-                    items: resThree
+                    items: task
                 }
-            }
-
-            setState(columnSet)
-        } catch (err) {
-            console.log(err)
         }
+            setState(columnSet)
 
-    }
+    } 
+
     // load getAllContent once
     useEffect(() => {
+        let isMounted = true; 
         getAllContent()
     }, [])
-
-    console.log('state', state)
-
 
     const completeTask = async id => {
         try {
             const taskItem = task.filter(item => item.id === id)[0]
             taskItem.completed = true
-            await axios.put(`/dashboard/task/${id}/`, taskItem)
+            await axios.put(`http://127.0.0.1:8000/dashboard/task/${id}/`, taskItem)
             getAllContent()
         } catch (err) {
             console.log(err)
@@ -63,7 +50,7 @@ function DailyTasksPage({ goals, setGoals, task, setTask }) {
 
     const editTask = async task => {
         try {
-            await axios.put(`/dashboard/task/${task.id}/`, task)
+            await axios.put(`http://127.0.0.1:8000/dashboard/task/${task.id}/`, task)
             getAllContent()
         } catch (err) {
             console.log(err)
@@ -110,16 +97,12 @@ function DailyTasksPage({ goals, setGoals, task, setTask }) {
     }
 
     const handleDragEnd = ({ destination, source }) => {
-        console.log("from", source)
-        console.log("to", destination)
-
         if (!destination) {
             return
         }
-
         if (destination.index === source.index && destination.droppableId == source.droppableId) {
             return
-        }
+        }   
 
         const itemCopy = state[source.droppableId].items[source.index]
         setState(prev => {
@@ -130,9 +113,7 @@ function DailyTasksPage({ goals, setGoals, task, setTask }) {
             return prev
         })
 
-
     }
-
 
     return (
         <div>

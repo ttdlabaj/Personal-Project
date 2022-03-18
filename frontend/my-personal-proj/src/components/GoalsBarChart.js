@@ -15,8 +15,6 @@ ChartJS.register(
 
 function GoalsBarChart() {
 
-    const [goalCompleted, setGoalCompleted] = useState([])
-    const [goalUncompleted, setGoalUncompleted] = useState([])
     const [barChartGoalsData, setBarChartGoalsData] = useState({})
 
     const barChartGoals = () => {

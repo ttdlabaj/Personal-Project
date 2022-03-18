@@ -11,11 +11,6 @@ class DailyTaskSerializer(serializers.ModelSerializer):
         model = DailyTask
         fields = ('id', 'name', 'completed', 'tasks', 'created_at')
 
-# class TaskListSerializer(serializers.ModelSerializer):
-#     class Meta:
-#         model = TaskList
-#         fields = ('id', 'name', 'description', 'tasks')
-
 class TaskSerializer(serializers.ModelSerializer):
     class Meta:
         model = Task

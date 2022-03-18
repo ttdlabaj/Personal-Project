@@ -100,7 +100,6 @@ p.author {
     border-radius: 0.5em;
     font-weight: 700;
     font-size: 1.2em;
-    margin-top: 1.2em;
 }
 
 /* goals page */
@@ -290,3 +289,14 @@ div#player {
     background: #fff;
     font-weight: 400;
 }
+.navbar-nav {
+    align-items: center;
+}
+
+/* .task-item.goals .edit-icons {
+    display: none;
+}
+
+.task-item .edit-icons {
+    display: none;
+} */

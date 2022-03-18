@@ -11,16 +11,11 @@ function Task({ id, name, goal, list, completeTask, deleteTask, editTask }) {
     const [show, setShow] = useState(false);
     const [newName, setName] = useState(name)
     const [newGoal, setGoal] = useState(goal)
-    const [newList, setList] = useState(list)
-
     const [goalData, setGoalData] = useState([])
-    const [listData, setListData] = useState([])
-
-    const [isChecked, setIsChecked] = useState(false)
 
     const getGoals = async () => {
         try {
-            const response = await axios.get('/dashboard/goals/')
+            const response = await axios.get('http://127.0.0.1:8000/dashboard/goals/')
             const { data } = response
             setGoalData(data)
 
@@ -29,35 +24,17 @@ function Task({ id, name, goal, list, completeTask, deleteTask, editTask }) {
         }
     }
 
-    const getLists = async () => {
-        try {
-            const response = await axios.get('/dashboard/task-list/')
-            const { data } = response
-            setListData(data)
-        } catch (err) {
-            console.log(err)
-        }
-    }
-
     useEffect(() => {
         getGoals()
-        getLists()
-
-
-    }, [])
-
-    useEffect(() => {
-
     }, [])
 
     const handleClose = () => {
         setShow(false)
         setName(name)
         setGoal(goal)
-
     };
-    const handleShow = () => {
 
+    const handleShow = () => {
         setShow(true)
     };
 
@@ -67,7 +44,6 @@ function Task({ id, name, goal, list, completeTask, deleteTask, editTask }) {
             id,
             name,
             completed: false,
-
             goal,
         }
         editTask(task)
@@ -82,7 +58,7 @@ function Task({ id, name, goal, list, completeTask, deleteTask, editTask }) {
                 </Form.Group>
                 </Col>
                 <Col>
-                    <p class="task-title">{name}</p>
+                    <p className="task-title">{name}</p>
                 </Col>
                 <Col md={2} className='edit-icons'>
                     <span className="e-icons" onClick={handleShow}><FontAwesomeIcon icon={faPen} /></span>
